@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title> <%= pageTitle %> </title>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+</head>
+
+<body>
+    
+    <%- include("includes/navbar.ejs")%>
+
+    <div class="container">
+        <div class="row" id="row">
+            <div class="col-md-12">
+                <form class="form-horizontal" name="3-1-form" action="/field/hot/result" method="GET">
+                    <div class="form-group col-sm-3 mb-3">
+                        <label for="field">Select field</label>
+                        <select name = "field" class="form-control" required>
+                            <% scientific_fields.forEach((field, _) => { %>
+                                <option value = "<%=field.name%>"><%=field.name%></option>
+                            <% }) %>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-submit-custom">Submit</button>
+                </form>
+        </div>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  
+</body>
+
+</html>

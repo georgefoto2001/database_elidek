@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title> <%= pageTitle %> </title>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+</head>
+
+<body>
+    
+    <%- include("includes/navbar.ejs")%>
+
+    <div class="container" id="row-container">
+        <div class="row" id="row">
+            <div class="col-md-4">
+                <div class="card" id="card-container-layout">
+                    <div class="card-body" id="card">
+                        <h4 class="card-title">Query 3.1</h4>
+                        <p class="card-text" id="paragraph">Show projects and programs based on conditions. Then select project and show its researchers.</p>
+                        <a class="btn btn-primary" id="show-btn" href="/project">Show</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card" id="card-container-layout">
+                    <div class="card-body" id="card">
+                        <h4 class="card-title">Query 3.2 A</h4>
+                        <p class="card-text" id="paragraph">View projects by researchers</p>
+                        <a class="btn btn-primary" id="show-btn" href="/project/by_researcher">Show</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card" id="card-container-layout">
+                    <div class="card-body" id="card">
+                        <h4 class="card-title">Query 3.2 B</h4>
+                        <p class="card-text" id="paragraph">View projects by organization</p>
+                        <a class="btn btn-primary" id="show-btn" href="/project/by_org">Show</a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="row" id="row">
+            <div class="col-md-4">
+                <div class="card" id="card-container-layout">
+                    <div class="card-body" id="card">
+                        <h4 class="card-title">Query 3.3 </h4>
+                        <p class="card-text" id="paragraph">View projects by organization</p>
+                        <a class="btn btn-primary" id="show-btn" href="/field/hot">Show</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" id="card-container-layout">
+                    <div class="card-body" id="card">
+                        <h4 class="card-title">Query 3.4 </h4>
+                        <p class="card-text" id="paragraph">View organizations that have the same number of project in
+                            two consecutive years and at least 10 per year.
+                        </p>
+                        <a class="btn btn-primary" id="show-btn" href="/organizations/programs/two_consecutive/10_per_year/">Show</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card" id="card-container-layout">
+                    <div class="card-body" id="card">
+                        <h4 class="card-title">Query 3.5 </h4>
+                        <p class="card-text" id="paragraph">View top 3 interdisciplinary projects </p>
+                        <a class="btn btn-primary" id="show-btn" href="/relates/top3/interdisciplinary/">Show</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" id="row">
+            <div class="col-md-4">
+                <div class="card" id="card-container-layout">
+                    <div class="card-body" id="card">
+                        <h4 class="card-title">Query 3.6 </h4>
+                        <p class="card-text" id="paragraph">View young researchers in active projects </p>
+                        <a class="btn btn-primary" id="show-btn" href="/researchers/young/active/">Show</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card" id="card-container-layout">
+                    <div class="card-body" id="card">
+                        <h4 class="card-title">Query 3.7 </h4>
+                        <p class="card-text" id="paragraph"> Top 5 executives</p>
+                        <a class="btn btn-primary" id="show-btn" href="/executives/top5/">Show</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card" id="card-container-layout">
+                    <div class="card-body" id="card">
+                        <h4 class="card-title">Query 3.8 </h4>
+                        <p class="card-text" id="paragraph"> Researchers with 5 or more projects with no delivery</p>
+                        <a class="btn btn-primary" id="show-btn" href="/researchers/no_deliver/">Show</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row" id="row">
+            <div class="col-md-4">
+                <div class="card" id="card-container-layout">
+                    <div class="card-body" id="card">
+                        <h4 class="card-title">Show table</h4>
+                        
+                        <form class="form-horizontal" name="create-form" action="/show/" method="GET">
+                            <label for="table">Choose a table to see its tuples:</label><br><br>
+                                <select name="table" id="table">
+                                    <option value="Deliverable">Deliverable</option>
+                                    <option value="evaluation">Evaluation</option>
+                                    <option value="executive">Executive</option>
+                                    <option value="organization">Organization</option>
+                                    <option value="Program">Program</option>
+                                    <option value="Program">Project</option>
+                                    <option value="relates">relates</option>
+                                    <option value="researcher">researcher</option>
+                                    <option value="ScientificFields">ScientificFields</option>
+                                    <option value="telephones">telephones</option>
+                                    <option value="works">works</option>
+                                </select><br><br>
+                                <button type="submit" class="btn btn-primary btn-submit-custom">Choose</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card" id="card-container-layout">
+                    <div class="card-body" id="card">
+                        <h4 class="card-title"> Insert tuples</h4>
+                        
+                        <form class="form-horizontal" name="create-form" action="/create/form/" method="GET">
+                            <label for="table">Choose a table to insert:</label><br><br>
+                                <select name="table" id="table">
+                                    <option value="Deliverable">Deliverable</option>
+                                    <option value="evaluation">Evaluation</option>
+                                    <option value="executive">Executive</option>
+                                    <option value="organization">Organization</option>
+                                    <option value="Program">Program</option>
+                                    <option value="Program">Project</option>
+                                    <option value="relates">relates</option>
+                                    <option value="researcher">researcher</option>
+                                    <option value="ScientificFields">ScientificFields</option>
+                                    <option value="telephones">telephones</option>
+                                    <option value="works">works</option>
+                                </select><br><br>
+                                <button type="submit" class="btn btn-primary btn-submit-custom">Choose</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card" id="card-container-layout">
+                    <div class="card-body" id="card">
+                        <h4 class="card-title">Update or delete</h4>
+                        
+                        <form class="form-horizontal" name="create-form" action="/update_delete/" method="GET">
+                            <label for="table">Choose a table:</label><br><br>
+                                <select name="table" id="table">
+                                    <option value="Deliverable">Deliverable</option>
+                                    <option value="evaluation">Evaluation</option>
+                                    <option value="executive">Executive</option>
+                                    <option value="organization">Organization</option>
+                                    <option value="Program">Program</option>
+                                    <option value="Program">Project</option>
+                                    <option value="relates">relates</option>
+                                    <option value="researcher">researcher</option>
+                                    <option value="ScientificFields">ScientificFields</option>
+                                    <option value="telephones">telephones</option>
+                                    <option value="works">works</option>
+                                </select><br><br>
+                                <button type="submit" class="btn btn-primary btn-submit-custom">Choose</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            toastr.options = {
+                "closeButton": true,
+                "positionClass": "toast-bottom-right",
+                "preventDuplicates": false
+            };
+            /* In order to access variables sent to ejs file to script you must Parse them to string */
+            /* then to parse them back to JSON */
+            let messages = '<%- JSON.stringify(messages) %>';
+            messages = JSON.parse(messages);
+            messages.forEach(({
+                type,
+                value
+            }) => {
+                switch (type) {
+                    case 'error':
+                        toastr.error(value)
+                        break;
+                    case 'success':
+                        toastr.success(value)
+                        break;
+                    case 'warning':
+                        toastr.warning(value)
+                        break;
+                    default:
+                        toastr.info(value)
+                        break;
+                }
+            });
+        })
+    </script>
+
+</body>
+
+</html>

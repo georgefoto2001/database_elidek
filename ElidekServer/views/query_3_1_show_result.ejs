@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title> <%= pageTitle %> </title>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    
+</head>
+
+<body>
+    
+    <%- include("includes/navbar.ejs")%>
+
+    <div class="container">
+        <div class="row" id="row">
+            <a class="btn btn-primary" id="show-btn" href="/project">Back to Query 3.1</a><br>
+            <% if(conditions.start_date!==''){ %>
+                <p><b>Start_date:</b><%=conditions.start_date %></p><br>
+            <%}%> 
+            <% if(conditions.duration!==''){ %>
+                <p><b>Duration:</b><%=conditions.duration %></p><br>
+            <%}%> 
+            <% if(conditions.exec_id!==''){ %>
+                <p><b>Executive ID:</b><%=conditions.exec_id %></p><br>
+            <%}%> 
+        </div>
+        <div class="row" id="row">
+            <div class="col-md-12">
+                <div class="card" id="card-container-big">
+                    <div class="card-body" id="card">
+                    <% if (result.length == 0) { %> 
+                        <h1 style="margin-top: 5rem;">No projects and programs found</h1>
+                    <% } else { %>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Program ID</th>
+                                        <th>Program Name</th>
+                                        <th>Project ID</th>
+                                        <th>Project Title</th>
+                                        <th>Duration</th>
+                                        <th>Start Date</th>
+                                        <th>Executive ID</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% result.forEach((res, _) => { %>
+                                        <tr>
+                                            <td><%= res.program_id %></td>
+                                            <td><%= res.prog_name %></td>
+                                            <td><%= res.project_id %></td>
+                                            <td><%= res.title %></td>
+                                            <td><%= res.Duration %></td>
+                                            <td><%= res.start_date%></td>
+                                            <td><%= res.executive_id %></td>
+                                            <form method="GET" action="/project/researchers/<%= res.project_id %>">
+                                                <td> 
+                                                    <button style="all: unset; cursor: pointer;" type="submit"><i class="fa fa-info"></i></button>
+                                                </td>
+                                            </form>
+                                        </tr>
+                                    <% }) %>
+                                </tbody>
+                            </table>
+                        </div>
+                    <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  
+</body>
+
+</html>
