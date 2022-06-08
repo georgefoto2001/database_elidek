@@ -3,7 +3,8 @@ const { pool } = require('../utils/database');
 exports.getOrganizationsLastTwo = (req,res) => {
     var sql_query = "SELECT v.name, concat(v.year_, '-', v.year_+1) as years, v.nop from two_years v\n" +
     "join two_years v2 on v.nop=v2.nop\n"+
-    "where v.org_id<>v2.org_id order by v.nop";
+    "where v.org_id<>v2.org_id \n"+
+        "and v.nop>10 order by v.nop" ;
 
     pool.getConnection((err, conn) => {
 
