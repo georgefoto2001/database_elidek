@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title> <%= pageTitle %> </title>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+</head>
+
+<body>
+    
+    <%- include("../includes/navbar.ejs")%>
+
+    <div class="container">
+        <div class="row" id="row">
+            <div class="col-md-12">
+                <form class="form-horizontal" name="3-1-form" action="/create/organization" method="POST">
+                    <div class="form-group col-sm-3 mb-3">
+                        <label for="name">name</label>
+                        <input type="text" class="form-control" name="name" placeholder="Enter organization name" required> 
+
+                        <label for="Postal_code">Postal_code</label>
+                        <input type="number" class="form-control" name="Postal_code" min="10000" max="99999" placeholder="Enter postal code"required>
+
+                        <label for="Street_Name">Street_Name</label>
+                        <input type="text" class="form-control" name="Street_Name" placeholder="Enter Street name" required> 
+
+                        <label for="Street_number">Street_Number</label>
+                        <input type="number" class="form-control" name="Street_number" placeholder="Enter Street number"required>
+
+                        <label for="City">City</label>
+                        <input type="text" class="form-control" name="City" placeholder="Enter City name" required>
+
+                        <label for="budget_Ministry">budget_Ministry</label>
+                        <input type="number" class="form-control" name="budget_Ministry"  placeholder="Enter budget from Ministry"required>
+
+                        <label for="budget_Priv">budget_Priv</label>
+                        <input type="number" class="form-control" name="budget_Priv" placeholder="Enter budget from Private funding"required>
+
+                        <label for="budget_Equity">budget_Equity</label>
+                        <input type="number" class="form-control" name="budget_Equity" placeholder="Enter budget from Equity"required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-submit-custom">Insert</button>
+                </form>
+        </div>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  
+</body>
+
+</html>
